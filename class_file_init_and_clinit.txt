@@ -1,0 +1,49 @@
+在Java编译后的class文件中，有两个特殊的方法：<init>和<clinit>。
+
+这两个方法是由Java虚拟机自动生成的，并且在运行时会自动调用。
+
+1. <init>
+<init>方法是用于初始化一个类的实例的。
+当创建一个类的实例时，Java虚拟机会自动调用该类的<init>方法。
+如果一个类中有多个<init>方法，那么Java虚拟机会选择与实例化的类型匹配的方法进行调用。
+每个<init>方法都有一个参数，即该类的实例，该参数必须被传递给该方法。
+下面是一个示例类，其中包含两个<init>方法：
+```
+public class MyClass {
+    private int x;
+    private int y;
+
+    public MyClass(int x) {
+        this.x = x;
+    }
+
+    public MyClass(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+```
+
+在上面的示例中，MyClass类有两个<init>方法，分别用于初始化一个实例的x和y属性。
+当创建MyClass的实例时，Java虚拟机会根据实例化的类型选择合适的<init>方法进行调用。
+
+2. <clinit>
+<clinit>方法是用于初始化一个类的静态成员变量和静态代码块的。
+当Java虚拟机加载一个类时，会自动调用该类的<clinit>方法。
+如果一个类中有多个<clinit>方法，那么Java虚拟机会选择一个方法进行调用。
+下面是一个示例类，其中包含一个静态代码块：
+```
+public class MyClass {
+    private static int x;
+
+    {
+        x = 1;
+    }
+}
+```
+
+在上面的示例中，MyClass类有一个静态代码块，用于初始化x属性。
+当Java虚拟机加载MyClass类时，会自动调用该类的<clinit>方法，并执行静态代码块中的代码。
+总结：
+<init>方法用于初始化一个类的实例，而<clinit>方法用于初始化一个类的静态成员变量和静态代码块。当Java虚拟机加载一个类时，会自动调用该类的<clinit>方法。
+当创建一个类的实例时，Java虚拟机会自动调用该类的<init>方法。
